@@ -1,4 +1,4 @@
-name: CI
+name: Кейс № 1
 
 on:
   push:
