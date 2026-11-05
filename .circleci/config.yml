@@ -1,0 +1,31 @@
+version: 2.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/node:22.14
+
+    steps:
+      - checkout
+
+      - run:
+          name: Установить зависимости
+          command: npm ci
+
+      - run:
+          name: Проверить приложение
+          command: |
+            npm run build
+            node --check src/server.js
+
+      - run:
+          name: Запустить тесты
+          command: npm test
+
+workflows:
+  case-3:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              only: main
