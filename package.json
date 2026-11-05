@@ -1,0 +1,23 @@
+{
+  "name": "homework3",
+  "version": "1.0.0",
+  "description": "дз №3",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/app.js",
+    "build": "node --check src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arteml052/Homework3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/arteml052/Homework3/issues"
+  },
+  "homepage": "https://github.com/arteml052/Homework3#readme"
+}
