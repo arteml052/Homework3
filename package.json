@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node --test",
-    "start": "node src/app.js",
+    "start": "node src/server.js",
     "build": "node --check src/app.js"
   },
   "repository": {
