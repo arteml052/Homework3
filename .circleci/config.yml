@@ -22,10 +22,33 @@ jobs:
           name: Запустить тесты
           command: npm test
 
+  deploy:
+    docker:
+      - image: cimg/base:stable
+
+    steps:
+      - run:
+          name: Развернуть приложение на Render
+          command: |
+            if [ -z "$RENDER_DEPLOY_HOOK_URL" ]; then
+              echo "Не задана переменная RENDER_DEPLOY_HOOK_URL"
+              exit 1
+            fi
+
+            curl --fail --show-error --silent --request POST \
+              "${RENDER_DEPLOY_HOOK_URL}&ref=${CIRCLE_SHA1}"
+
 workflows:
   case-3:
     jobs:
       - build-and-test:
+          filters:
+            branches:
+              only: main
+
+      - deploy:
+          requires:
+            - build-and-test
           filters:
             branches:
               only: main
