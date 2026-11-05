@@ -1,4 +1,5 @@
 name: Кейс № 1
+run-name: Кейс № 1
 
 on:
   push:
